@@ -18,6 +18,12 @@ A practical article about OpenLDAP set-based ACLs.
 
 [→ Read the article](https://areq.gitlab.io/posts/2021-05-16-openldap-set-acls/)
 
+### 🔗 In-Chain Matching for OpenLDAP
+
+A new OpenLDAP contrib overlay, **`inchain`**, implementing Microsoft’s **LDAP_MATCHING_RULE_IN_CHAIN** (OID `1.2.840.113556.1.4.1941`) for recursive matching across LDAP Distinguished Name references.
+
+[→ View the implementation on GitHub](https://github.com/univention/openldap/pull/1)
+
 ### Misc linked issues:
 
 - [ITS 9795 - Remove memberof overlay](https://bugs.openldap.org/show_bug.cgi?id=9795#c1)
