@@ -1,6 +1,7 @@
 ---
 layout: default
-title: LDAPCon 2026 transcript
+title: Univention @ LDAPCon 2026 transcript
+description: Transscript of my LDAPCon 2026 talk
 ---
 # Will be added soon!
 

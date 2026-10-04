@@ -1,9 +1,8 @@
 ---
 layout: default
-title: LDAPCon 2026 Link collection
+title: Univention @ LDAPCon 2026 link collection
+description: Links, references, and additional material for my LDAPCon 2026 talk
 ---
-# Univention @ LDAPCon 2026 link collection
-
 Links, references, and additional material for my LDAPCon 2026 talk **"Tales from integrating OpenLDAP with the modern world"**.
 
 ### 🎤 Talk materials
