@@ -1,12 +1,16 @@
+---
+layout: default
+title: LDAPCon 2026 Link collection
+---
 # Univention @ LDAPCon 2026 link collection
 
 Links, references, and additional material for my LDAPCon 2026 talk **"Tales from integrating OpenLDAP with the modern world"**.
 
 ### 🎤 Talk materials
 
-- [→ Presentation (PDF)](./ldapcon2026/Florian-Best-Tales-from-integrating-LDAP-LDAPCon-2026.pdf)  <!-- TODO: replace with upstream hosted link -->
-- [→ Presentation (MARP HTML)](./ldapcon2026/index.html)
-- [→ Talk transcript](./ldapcon2026/transcript.md)
+- [→ Presentation (PDF)](./Florian-Best-Tales-from-integrating-LDAP-LDAPCon-2026.pdf)  <!-- TODO: replace with upstream hosted link -->
+- [→ Presentation (MARP HTML)](./index.html)
+- [→ Talk transcript](./transcript.html)
 
 ### 🔐 CrudeOAuth
 
