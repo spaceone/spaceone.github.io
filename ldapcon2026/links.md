@@ -44,6 +44,12 @@ A practical article about OpenLDAP set-based ACLs.
 
 [→ Read the article](https://areq.gitlab.io/posts/2021-05-16-openldap-set-acls/)
 
+### 📊 LDAP ACL performance comparisons
+
+A broader overview of our LDAP ACL performance benchmarks and comparisons is still being prepared for publication.
+
+It is not available yet, but I plan to add it here in the weeks following LDAPCon 2026.
+
 ### 🔐 OpenLDAP Add Content ACLs & DIT Content Rules
 
 References for the LDAP ACL quiz and the somewhat surprising behavior of Add operations.
@@ -68,3 +74,9 @@ References for the LDAP ACL quiz and the somewhat surprising behavior of Add ope
 Interested in open source, identity management, and digital sovereignty?
 
 [→ Your next job might be at Univention](https://www.univention.com/about-us/careers/)
+
+### 🕵️ Hidden reference: WeChall
+
+[WeChall](https://www.wechall.net) is a hacking challenge platform where I built a large part of my practical security knowledge over the years.
+
+It is not mentioned in the talk itself, but there is a small hidden reference: the T-shirt I'm wearing during the security chapters.
