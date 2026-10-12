@@ -1,0 +1,8 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 900" width="800" height="900">
+  <!-- Stand-in for a photo. Replace it with your own image. -->
+  <rect width="800" height="900" fill="#ecece9"/>
+  <g fill="#d8d8d6">
+    <circle cx="500" cy="340" r="48"/>
+    <path d="M250 560 L360 420 L440 520 L500 460 L570 560 Z"/>
+  </g>
+</svg>

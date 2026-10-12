@@ -1,0 +1,902 @@
+/*
+ * @theme univention
+ * @auto-scaling true
+ * @size 16:9 1280px 720px
+ */
+
+/* Marp's built-in default theme is the base: it styles everything Markdown
+ * can produce (tables, syntax highlighting, kbd, header, fitting headings, ...).
+ * This file then applies the Univention look on top. */
+@import "default";
+
+@import url("https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,400;0,600;0,700;0,800;1,400&display=swap");
+
+:root {
+  /* colors — tokens/colors.css */
+  --uv-red: #dd042d;
+  --uv-red-120: #b00324;
+  --uv-red-surface: #fce9ed;
+  --uv-gray: #868681;
+  --uv-gray-light: #d8d8d6;
+  --uv-ink: #3d3d3a;
+  --uv-mist: #ecece9;
+  --uv-shell: #f6f6f4;
+  --uv-white: #ffffff;
+  --color-primary: var(--uv-red);
+  --color-on-primary: var(--uv-white);
+  --text-strong: var(--uv-ink);
+  --text-body: var(--uv-ink);
+  --text-muted: var(--uv-gray);
+  --text-accent: var(--uv-red);
+  --text-on-dark: var(--uv-white);
+  --code-surface: var(--uv-shell);
+  --code-border: var(--border-subtle);
+  --table-surface: var(--uv-white);
+  --table-head: var(--uv-shell);
+  --table-stripe: #fafaf9;
+  --table-border: var(--uv-gray-light);
+  --surface-page: var(--uv-white);
+  --surface-subtle: var(--uv-shell);
+  --surface-dark: var(--uv-ink);
+  --border-default: var(--uv-gray-light);
+  --border-subtle: var(--uv-mist);
+
+  /* type — tokens/typography.css */
+  --font-display: "Open Sans", system-ui, -apple-system, "Segoe UI", sans-serif;
+  --font-body: "Open Sans", system-ui, -apple-system, "Segoe UI", sans-serif;
+  --font-mono: ui-monospace, Menlo, Consolas, "Liberation Mono", monospace;
+  --fw-regular: 400;
+  --fw-semibold: 600;
+  --fw-bold: 700;
+  --lh-tight: 1.1;
+  --lh-heading: 1.2;
+  --lh-snug: 1.35;
+  --lh-body: 1.6;
+
+  /* spacing, radii, shadows — tokens/spacing.css */
+  --space-2: 8px;
+  --space-3: 12px;
+  --space-4: 16px;
+  --space-5: 20px;
+  --space-6: 24px;
+  --space-8: 32px;
+  --space-10: 40px;
+  --space-12: 48px;
+  --space-16: 64px;
+  --space-20: 80px;
+  --radius-md: 5px;
+  --radius-pill: 999px;
+  --radius-brand: 0 25px 25px 25px;
+  --radius-brand-sm: 0 16px 16px 16px;
+  --shadow-sm: 0 2px 6px rgba(0, 0, 0, 0.04), 0 8px 24px rgba(0, 0, 0, 0.05);
+  --shadow-md: 0 4px 12px rgba(0, 0, 0, 0.06), 0 16px 40px rgba(0, 0, 0, 0.09);
+  --shadow-red-sm: 0 12px 40px rgba(221, 4, 45, 0.1);
+  --shadow-red-lg: 0 24px 72px rgba(221, 4, 45, 0.3), 0 8px 24px rgba(221, 4, 45, 0.2);
+  --table-border: #d7dce1;
+  --table-head: #eef1f4;
+  --table-stripe: #f7f8f9;
+}
+
+/* ---------- slide ---------- */
+section {
+  /* 1rem = 17px, the univention.de root */
+  font-size: 17px;
+  width: 1280px;
+  height: 720px;
+  padding: var(--space-16) var(--space-20);
+  position: relative;
+  font-family: var(--font-body);
+  font-weight: var(--fw-regular);
+  line-height: var(--lh-body);
+  color: var(--text-body);
+  background: var(--surface-page);
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  gap: var(--space-5);
+}
+
+/* ---------- base reset ----------
+ * The default theme is GitHub-flavoured: vertically centred slides, margins
+ * on every block, underlined headings and links. Spacing here comes from the
+ * slide's flex gap instead, so those parts are switched off. */
+section::before { content: none; }
+section h1,
+section h2,
+section h3,
+section h4,
+section h5,
+section h6 { margin: 0; padding: 0; border: 0; }
+section h1 strong,
+section h2 strong,
+section h3 strong,
+section h4 strong,
+section h5 strong,
+section h6 strong { color: inherit; }
+section p,
+section ul,
+section ol,
+section dl,
+section blockquote,
+section pre,
+section table,
+section details,
+section figure { margin: 0; }
+section li + li,
+section li > p { margin-top: 0; }
+/* kbd and mark are light chips on every slide, like inline code */
+section kbd,
+section mark { color-scheme: light; }
+
+/* ---------- type ---------- */
+section h1,
+section h2,
+section h3,
+section h4 {
+  margin: 0;
+  font-family: var(--font-display);
+  color: var(--text-strong);
+  text-wrap: balance;
+}
+section h1 { font: var(--fw-bold) 3.235rem/var(--lh-tight) var(--font-display); }
+section h2 { font: var(--fw-bold) 2.059rem/var(--lh-heading) var(--font-display); }
+section h3 { font: var(--fw-semibold) 1.412rem/var(--lh-snug) var(--font-display); }
+section h4 {
+  font: var(--fw-bold) 0.882rem/var(--lh-snug) var(--font-display);
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--text-accent);
+}
+section p {
+  margin: 0;
+  max-width: 32em;
+  text-wrap: pretty;
+}
+section strong { font-weight: var(--fw-bold); }
+a, a:hover { color: var(--color-primary); text-decoration: none; }
+a:hover { color: var(--uv-red-120); }
+code {
+  font-family: var(--font-mono);
+  font-size: 0.9em;
+  background: var(--uv-mist);
+  border-radius: var(--radius-md);
+  padding: 0.1em 0.35em;
+}
+/* Inline code is a light chip with ink text on every surface, including
+ * muted text and dark slides. It keeps runs of spaces, so `a  b` stays
+ * two spaces apart. */
+section :where(:not(pre, marp-pre)) > code {
+  color: var(--uv-ink);
+  white-space: pre-wrap;
+}
+section a > code,
+section h1 > code,
+section h2 > code,
+section h3 > code,
+section h4 > code,
+section h5 > code {
+    color: inherit;
+}
+
+section .eyebrow {
+  font: var(--fw-bold) 0.882rem/var(--lh-snug) var(--font-display);
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--text-accent);
+}
+section .lede {
+  font: var(--fw-regular) 1.529rem/var(--lh-snug) var(--font-body);
+  color: var(--text-strong);
+  max-width: 28em;
+}
+section .note {
+  font: var(--fw-regular) 1.176rem/var(--lh-body) var(--font-body);
+  color: var(--text-muted);
+  max-width: 40em;
+}
+
+/* Red hairline under the slide title, drawn automatically below the first
+ * h1/h2 of a content slide. Title, statement, invert, red and contact
+ * slides go without.
+ * A title that is still followed by an <hr> (the old way) keeps just that
+ * one line. */
+section:not(.title, .statement, .invert, .red, .contact) > :is(h1, h2):not(:is(h1, h2) ~ *):not(:has(+ hr))::after {
+  content: "";
+  display: block;
+  width: 96px;
+  margin-top: var(--space-6);
+  border-top: 2px solid var(--color-primary);
+}
+
+/* the same hairline as a separator: a bare <hr> directly on the slide */
+section > hr {
+  border: 0;
+  border-top: 2px solid var(--color-primary);
+  background: none;
+  height: 0;
+  padding: 0;
+  width: 96px;
+  margin: 0;
+}
+
+/* ---------- code blocks ----------
+ * Syntax colours come from the default theme and follow color-scheme, so
+ * they switch to their dark variant on section.invert. */
+section pre {
+  font: var(--fw-regular) 0.941rem/1.45 var(--font-mono);
+  padding: var(--space-4) var(--space-5);
+  background: var(--code-surface);
+  border: 1px solid var(--code-border);
+  border-radius: var(--radius-md);
+}
+
+/* ---------- tables ----------
+ * Full width, one rounded outer border, shaded header and zebra rows.
+ * Align columns in Markdown (---: right, :---: centre); numbers line up
+ * thanks to tabular figures. */
+section table {
+  display: table;
+  width: 100%;
+  border-collapse: separate;
+  border-spacing: 0;
+  border: 1px solid var(--table-border);
+  border-radius: var(--radius-md);
+  overflow: hidden;
+  font-size: 0.9rem;
+  font-variant-numeric: tabular-nums;
+  color: var(--text-body);
+  background: var(--table-surface);
+}
+section table th,
+section table td {
+  padding: 0.45rem 0.7rem;
+  border: 0;
+  border-right: 1px solid var(--table-border);
+  border-bottom: 1px solid var(--table-border);
+  vertical-align: middle;
+}
+section table th:last-child,
+section table td:last-child { border-right: 0; }
+section table tbody tr:last-child td { border-bottom: 0; }
+section table th {
+  font-weight: var(--fw-semibold);
+  color: var(--text-strong);
+  text-align: left;
+  background: var(--table-head);
+}
+section table tr { background: transparent; border: 0; }
+section table tbody tr:nth-child(even) { background: var(--table-stripe); }
+
+/* ---------- lists ---------- */
+section ul,
+section ol {
+  margin: 0;
+  padding-left: 1.15em;
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-3);
+  font-size: 1.176rem;
+}
+section li { margin: 0; text-wrap: pretty; }
+section li::marker { color: var(--color-primary); font-weight: var(--fw-bold); }
+
+/* ---------- columns ---------- */
+.cols {
+  display: flex;
+  gap: var(--space-6);
+  align-items: stretch;
+  flex: 1;
+  min-height: 0;
+}
+.cols > * { flex: 1; min-width: 0; }
+.cols > blockquote,
+.cols > .slab { align-self: flex-start; }
+
+/* ---------- card: the signature shape ---------- */
+.card {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-3);
+  padding: var(--space-8);
+  background: var(--surface-page);
+  border-radius: var(--radius-brand);
+  box-shadow: var(--shadow-sm);
+}
+.card.muted { background: var(--surface-subtle); box-shadow: none; }
+.card.accent { background: var(--surface-page); box-shadow: var(--shadow-red-sm); }
+:where(.card) p { font-size: 1.176rem; max-width: none; }
+:where(.card.muted) p { color: var(--text-muted); }
+.card ul { font-size: 1.1rem; }
+
+/* ---------- numbered steps ---------- */
+.steps {
+  display: flex;
+  gap: var(--space-5);
+  align-items: stretch;
+  flex: 1;
+  min-height: 0;
+}
+.steps > .step {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-3);
+  padding: var(--space-8);
+  background: var(--surface-subtle);
+  border-radius: var(--radius-brand);
+}
+.steps .num {
+  font: var(--fw-bold) 2.059rem/1 var(--font-display);
+  color: var(--color-primary);
+}
+:where(.steps .step) p { font-size: 1.1rem; color: var(--text-muted); max-width: none; }
+
+/* ---------- tile grid (App-Kacheln rhythm) ---------- */
+.grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: var(--space-5);
+  flex: 1;
+  min-height: 0;
+}
+.grid > .item {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-2);
+  padding: var(--space-6);
+  background: var(--surface-subtle);
+  border-radius: var(--radius-brand-sm);
+}
+.grid .item h3 { font-size: 1.294rem; }
+:where(.grid .item) p { font-size: 1.05rem; color: var(--text-muted); max-width: none; }
+
+/* ---------- pull quote ---------- */
+blockquote {
+  margin: 0;
+  padding: 0 0 0 var(--space-6);
+  border-left: 3px solid var(--color-primary);
+  font: italic var(--fw-regular) 1.529rem/var(--lh-snug) var(--font-body);
+  color: var(--text-strong);
+  max-width: 34em;
+}
+blockquote p { max-width: none; }
+
+/* ---------- pill label / colour box ---------- */
+.badge {
+  align-self: flex-start;
+  font: var(--fw-semibold) 0.882rem/1.4 var(--font-display);
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  padding: var(--space-2) var(--space-5);
+  border-radius: var(--radius-pill);
+  color: var(--color-on-primary);
+  background: var(--color-primary);
+}
+.slab {
+  align-self: flex-start;
+  padding: var(--space-5) var(--space-6);
+  background: var(--color-primary);
+  color: var(--color-on-primary);
+  border-radius: var(--radius-brand);
+  font: var(--fw-bold) 1.647rem/var(--lh-heading) var(--font-display);
+  box-shadow: var(--shadow-red-sm);
+}
+.slab a {
+  color: inherit;
+}
+span.slab a {
+  font-size: 0.9em;
+  vertical-align: middle;
+}
+
+/* ---------- logo ---------- */
+.logo { height: 46px; width: auto; }
+section > .logo { position: absolute; top: var(--space-12); left: var(--space-20); }
+
+/* ---------- title slide ---------- */
+section.title {
+  background: var(--surface-page);
+  justify-content: center;
+  gap: var(--space-6);
+  padding: var(--space-20);
+}
+section.title h1 { max-width: 17em; }
+section.title .lede { font-size: 1.412rem; color: var(--text-body); max-width: 26em; }
+
+/* ---------- dark statement slide and red slide ---------- */
+/* Text colours come from the --text-* tokens, so the dark and red slides
+ * only re-point them. Light surfaces placed on them (cards, steps, tiles)
+ * point them back, and everything inside them, at any depth, renders as on
+ * a light slide. */
+section.invert,
+section.red {
+  --text-strong: var(--text-on-dark);
+  --text-body: var(--text-on-dark);
+  --text-muted: var(--uv-gray-light);
+  --text-accent: var(--uv-white);
+  --code-surface: #2f2f2c;
+  --code-border: rgba(255, 255, 255, 0.08);
+  --table-surface: transparent;
+  --table-head: rgba(255, 255, 255, 0.1);
+  --table-stripe: rgba(255, 255, 255, 0.04);
+  --table-border: rgba(255, 255, 255, 0.18);
+  background: var(--surface-dark);
+  color: var(--text-body);
+  justify-content: center;
+}
+section:is(.invert, .red) .card,
+section:is(.invert, .red) .steps > .step,
+section:is(.invert, .red) .grid > .item {
+  --color-primary: var(--uv-red);
+  --color-on-primary: var(--uv-white);
+  --text-strong: var(--uv-ink);
+  --text-body: var(--uv-ink);
+  --text-muted: var(--uv-gray);
+  --text-accent: var(--uv-red);
+  --code-surface: var(--uv-shell);
+  --code-border: var(--border-subtle);
+  --table-surface: var(--uv-white);
+  --table-head: var(--uv-shell);
+  --table-stripe: #fafaf9;
+  --table-border: var(--uv-gray-light);
+  color: var(--text-body);
+  /* the default theme's colours (code, tables) follow color-scheme */
+  color-scheme: light;
+}
+section:is(.invert, .red) .card { background: var(--surface-page); box-shadow: none; }
+
+/* The red slide: the loudest surface, for openers, product intros and
+ * closers. On red the primary colour turns white, so markers, badges,
+ * slabs and hairlines stay visible. */
+section.red {
+  --color-primary: var(--uv-white);
+  --color-on-primary: var(--uv-red);
+  --text-muted: var(--uv-red-surface);
+  --code-surface: var(--uv-ink);
+  background: var(--uv-red);
+  color-scheme: dark;
+  gap: var(--space-5);
+}
+section.red h1 { max-width: 17em; }
+section.red .lede { max-width: 26em; }
+section.red a { text-decoration: underline; }
+section.red :is(.card, .step, .item) a { text-decoration: none; }
+/* the logo sits top right here, as on the corporate red slide */
+section.red > .logo { left: auto; right: var(--space-20); }
+
+/* Product icon pinned bottom right, e.g. the UCS cube on a red slide.
+ * Sized for icons that carry their own padding (ucs-icon-white.svg has
+ * about a quarter of empty space around the mark). */
+section > .emblem {
+  position: absolute;
+  right: var(--space-4);
+  bottom: 0;
+  height: 300px;
+  width: auto;
+}
+
+/* ---------- subtle statement slide ---------- */
+section.statement {
+  background: var(--surface-subtle);
+  justify-content: center;
+  gap: var(--space-6);
+}
+section.statement h2 { font-size: 2.588rem; max-width: 24em; }
+
+/* ---------- contact slide ----------
+ * Speaker details in a red box at the bottom left, office addresses next
+ * to it, logo top right. One line per line in the Markdown source. */
+section.contact { justify-content: flex-end; }
+section.contact > .logo { left: auto; right: var(--space-20); }
+section.contact > .cols { flex: 0 0 auto; align-items: center; gap: var(--space-10); }
+.speaker {
+  flex: 0 0 340px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: var(--space-6);
+  min-height: 260px;
+  padding: var(--space-8);
+  background: var(--uv-red);
+  color: var(--uv-white);
+  border-radius: var(--radius-brand);
+  box-shadow: var(--shadow-red-sm);
+}
+section .speaker p { max-width: none; font-size: 1rem; line-height: var(--lh-body); }
+.speaker a { color: inherit; }
+.offices {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: var(--space-6) var(--space-8);
+}
+section .offices p { max-width: none; font-size: 0.941rem; color: var(--text-muted); }
+.offices strong { color: var(--text-strong); }
+
+/* ---------- header / footer / pagination ---------- */
+section > header,
+section > footer {
+  position: absolute;
+  font: var(--fw-regular) 0.882rem/1.4 var(--font-body);
+  color: var(--text-muted);
+  left: var(--space-20);
+}
+section > header { top: var(--space-8); }
+section > footer { bottom: var(--space-8); }
+section::after {
+  position: absolute;
+  font: var(--fw-semibold) 0.882rem/1.4 var(--font-body);
+  color: var(--text-muted);
+  /* the default theme sizes this at 24px, which also rescales rem here */
+  --marpit-root-font-size: inherit;
+  right: var(--space-20);
+  bottom: var(--space-8);
+  content: attr(data-marpit-pagination) " / " attr(data-marpit-pagination-total);
+}
+/* With ![bg right](...) the page number lands on the image, so it gets a
+ * white chip to stay readable on any photo. */
+section[data-marpit-advanced-background="pseudo"][data-marpit-advanced-background-split="right"]::after {
+  color: var(--uv-ink);
+  background: var(--uv-white);
+  padding: 0 var(--space-2);
+  border-radius: var(--radius-pill);
+}
+
+@keyframes marp-outgoing-transition-zoom-image {
+  from {
+    transform: scale(1.6);
+    opacity: 0;
+    animation-timing-function: ease-in;
+  }
+
+  to {
+    transform: scale(1);
+    opacity: 1;
+  }
+}
+
+@keyframes marp-incoming-transition-zoom-image {
+  from {
+    transform: scale(0.75);
+    opacity: 0;
+  }
+
+  to {
+    transform: scale(1);
+    opacity: 1;
+    animation-timing-function: ease-out;
+  }
+}
+
+/* Beide Bilder gehören logisch zusammen */
+.morph-arch {
+  view-transition-name: architecture-image;
+}
+
+/* Fullscreen-Folie */
+section.image-fullscreen {
+  padding: 0;
+  overflow: hidden;
+}
+
+section.image-fullscreen .hero-image {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+/* Ziel-Folie: kleines Bild links */
+section.image-left-small {
+  display: block;
+  padding: 60px 70px;
+}
+
+section.image-left-small h1 {
+  margin-top: 0;
+}
+
+section.image-left-small .hero-image {
+  display: block;
+  width: 32%;
+  max-width: 420px;
+  height: auto;
+  margin: 20px 0 24px 0;
+  object-fit: contain;
+}
+
+section.image-fullscreen {
+  padding: 0;
+  overflow: hidden;
+}
+
+section.image-fullscreen .morph-image {
+  position: absolute;
+  inset: 0;
+
+  width: 100%;
+  height: 100%;
+
+  object-fit: cover;
+  object-position: center;
+
+  margin: 0;
+  padding: 0;
+
+  view-transition-name: udm-user-image;
+}
+
+/* lego architecture zoom */
+
+/* Fullscreen image */
+section.zoom-full,
+section.zoom-target {
+  padding: 0;
+  overflow: hidden;
+}
+
+section.zoom-full .zoom-image,
+section.zoom-target .zoom-image {
+  position: absolute;
+  inset: 0;
+
+  width: 100%;
+  height: 100%;
+
+  object-fit: contain;
+  object-position: center;
+
+  max-width: none;
+  margin: 0;
+}
+
+/* Ausgangszustand */
+section.zoom-full {
+  transform: scale(1.185) translate(0, 5.2%);
+  transform-origin: center center;
+}
+
+/* Dauerhafter Endzustand auf der nächsten Folie */
+section.zoom-target {
+  transform: scale(1.8) translate(8%, 20%);
+  transform-origin: center center;
+}
+
+/*
+ * Die ausgehende Folie liegt während des Übergangs vorne
+ * und zoomt exakt in den Zustand der nächsten Folie.
+ */
+@keyframes marp-outgoing-transition-camera-zoom {
+  from {
+    transform: scale(1.185) translate(0, 5.2%);
+    transform-origin: center center;
+
+    animation-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+  }
+
+  to {
+    transform: scale(1.475) translate(10%, 18%); /* workaround for a optical jump - near no-jump */
+    transform-origin: center center;
+  }
+}
+
+/*
+ * Die Ziel-Folie liegt bereits darunter.
+ * Keine Bewegung, kein Fade.
+ */
+@keyframes marp-incoming-transition-camera-zoom {
+  from {
+    z-index: -1;
+    opacity: 1;
+  }
+
+  to {
+    z-index: -1;
+    opacity: 1;
+  }
+}
+
+@keyframes marp-outgoing-transition-backward-camera-zoom {
+  from {
+    z-index: -1;
+    opacity: 1;
+  }
+
+  to {
+    z-index: -1;
+    opacity: 1;
+  }
+}
+
+@keyframes marp-incoming-transition-backward-camera-zoom {
+  from {
+    transform: scale(2) translate(8%, 17%);
+    transform-origin: center center;
+
+    animation-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+  }
+
+  to {
+    transform: scale(1) translate(0, 0);
+    transform-origin: center center;
+  }
+}
+
+@keyframes marp-outgoing-transition-camera-zoom-out {
+  /* outgoing Slide bleibt hinten */
+  from {
+    z-index: -1;
+    opacity: 1;
+  }
+
+  to {
+    z-index: -1;
+    opacity: 1;
+  }
+}
+
+@keyframes marp-incoming-transition-camera-zoom-out {
+  from {
+    transform: scale(2) translate(8%, 17%);
+    transform-origin: center center;
+
+    animation-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+  }
+
+  to {
+    transform: scale(1) translate(0, 0);
+    transform-origin: center center;
+  }
+}
+
+section.zoom-out-target .zoom-image {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  transform: scale(1.185) translate(0, 5.2%);
+
+}
+
+section.zoom-out-target .real-content {
+  opacity: 0;
+}
+
+section.zoom-out-target .real-content {
+  animation: show-content 0s 1.5s forwards;
+}
+
+section.zoom-out-target .zoom-image {
+  animation: hide-image 0s 1.5s forwards;
+}
+
+@keyframes show-content {
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes hide-image {
+  to {
+    opacity: 0;
+    visibility: hidden;
+  }
+}
+.slab-qr {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4em;
+}
+.qr-row {
+  display: flex;
+  align-items: center;
+  /*gap: 0.5em;*/
+}
+
+.qr {
+  width: 17em;
+  height: 17em;
+  display: inline-block;
+}
+
+.slab-qr .qr {
+  flex: none;
+  position: absolute;
+  right: 0;
+  bottom: 0;
+}
+
+/* DNs */
+
+.dn-ref {
+  font-size: 0.72em;
+  margin-bottom: 1.1em;
+}
+
+code.dn {
+  white-space: pre-wrap;
+  font-family: var(--font-mono, ui-monospace, "DejaVu Sans Mono", Menlo, Consolas, monospace);
+  font-size: 0.78em;
+  font-size: 1.21em;
+  padding: 0.18em 0.35em;
+  border-radius: 5px;
+  background: #f5f7fb;
+  color: #172033;
+  box-decoration-break: clone;
+  -webkit-box-decoration-break: clone;
+}
+
+/* highlight whitespace / separators */
+.dn-ws {
+  background: #dfe3ff;
+  border-radius: 3px;
+  padding: 0 0.08em;
+}
+
+/* highlight normalized spaces inside attribute values */
+.dn-space {
+  background: #ffd5df;
+  border-radius: 3px;
+  padding: 0 0.08em;
+}
+
+.dn-tag {
+  padding: 0.08em 0.25em;
+  border-radius: 4px;
+  font-weight: 700;
+}
+
+.rdn1 { background: #ffd5df; }
+.rdn2 { background: #ffd9ad; }
+.rdn3 { background: #ffe8a6; }
+.rdn4 { background: #cfeecf; }
+.rdn5 { background: #cfe0ff; }
+
+.note-code {
+  font-size: 0.82em;
+  background: #eeeeea;
+  color: #333;
+  padding: 0.08em 0.28em;
+  border-radius: 4px;
+}
+
+.double-emoji img.emoji {
+	zoom: 2;
+}
+
+.code-frame {
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+}
+
+.code-title {
+  align-self: flex-start;
+  font-family: var(--font-mono, ui-monospace, Menlo, Consolas, monospace);
+  font-size: 0.72rem;
+  padding: 0.2rem 0.5rem;
+  background: var(--uv-mist);
+  border-radius: 5px 5px 0 0;
+  color: var(--text-muted);
+}
+
+.code-frame pre {
+  border-top-left-radius: 0;
+  margin-top: 0;
+}
+
+h4 {
+	margin-bottom: 0.3em;
+}
+
+section.statement blockquote h1,
+section.statement blockquote h2 {
+	font-style: italic;
+}
+section.statement blockquote h2 code {
+	font-style: normal;
+}
+section .fr {
+  float: right;
+}
