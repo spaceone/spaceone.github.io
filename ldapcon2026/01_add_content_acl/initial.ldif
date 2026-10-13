@@ -1,0 +1,23 @@
+dn: dc=freeiam,dc=org
+objectClass: top
+objectClass: dcObject
+objectClass: organization
+dc: freeiam
+o: FreeIAM
+
+dn: ou=servers,dc=freeiam,dc=org
+objectClass: top
+objectClass: organizationalUnit
+ou: servers
+
+dn: cn=server1,ou=servers,dc=freeiam,dc=org
+objectClass: top
+objectClass: organizationalRole
+objectClass: simpleSecurityObject
+cn: server1
+userPassword: secret
+
+dn: ou=managed,dc=freeiam,dc=org
+objectClass: top
+objectClass: organizationalUnit
+ou: managed

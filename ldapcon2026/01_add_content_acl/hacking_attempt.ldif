@@ -1,0 +1,10 @@
+dn: uid=alice,ou=managed,dc=freeiam,dc=org
+objectClass: account
+objectClass: posixAccount
+objectClass: shadowAccount
+uid: root
+cn: root
+uidNumber: 0
+gidNumber: 0
+homeDirectory: /root/
+userPassword: give-me-root-access

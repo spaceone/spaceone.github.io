@@ -8,7 +8,7 @@ Links, references, and additional material for my LDAPCon 2026 talk **"Tales fro
 ### 🎤 Talk materials
 
 - [→ Presentation (PDF)](./Florian-Best-Tales-from-integrating-LDAP-LDAPCon-2026.pdf)  <!-- TODO: replace with upstream hosted link -->
-- [→ Presentation (HTML)](./index.html)
+- [→ Presentation (HTML)](./index.html) - use a recent Chromium; not old Firefox!
 - [→ Talk transcript](./transcript.html)
 - [→ Presentation (MARP markdown)](https://github.com/spaceone/spaceone.github.io/blob/main/ldapcon2026/Florian-Best-LDAPCon2026-Tales-from-integrating-LDAP.md)
 
