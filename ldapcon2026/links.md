@@ -55,9 +55,15 @@ It is not available yet, but I plan to add it here in the weeks following LDAPCo
 
 References for the LDAP ACL quiz and the somewhat surprising behavior of Add operations.
 
+By default, OpenLDAP does not perform attribute-level ACL checks when adding entries. This can lead to serious security issues if administrators assume that their ACLs also restrict the content of newly created entries.
+
+I've submitted an OpenLDAP ITS proposing to enable `add_content_acl` by default in a future release, and published a reproducible proof of concept demonstrating the security implications.
+
 - [→ `slapd.conf(5)` - `add_content_acl`](https://man7.org/linux/man-pages/man5/slapd.conf.5.html)
 - [→ `slapd.access(5)` - ACL requirements for Add operations](https://man7.org/linux/man-pages/man5/slapd.access.5.html)
 - [→ OpenLDAP FAQ: DIT Content Rules](https://www.openldap.org/faq/data/cache/1473.html)
+- [→ OpenLDAP ITS#10623 - Proposal to enable `add_content_acl` by default](https://bugs.openldap.org/show_bug.cgi?id=10623)
+- [→ Security PoC - Reproducing the `add_content_acl` issue](https://github.com/spaceone/spaceone.github.io/tree/main/ldapcon2026/01_add_content_acl)
 
 ### 🐛 Misc linked issues
 
