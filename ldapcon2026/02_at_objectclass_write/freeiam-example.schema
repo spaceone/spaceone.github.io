@@ -1,0 +1,43 @@
+# FreeIAM example LDAP schema
+#
+# For demonstrations, tests, and security research.
+# These object classes are not intended for production.
+#
+# IANA Private Enterprise Number: 64020
+# Base OID: 1.3.6.1.4.1.64020
+#
+# OID allocation:
+#   .999       Examples and demonstrations
+#   .999.1     Attribute types
+#   .999.2     Object classes
+#
+# The example roles deliberately have no additional attributes (or would share the same attributes).
+# Their presence in a objectClass is intended to grant
+# privileges in an external application.
+
+objectIdentifier freeiamExamples 1.3.6.1.4.1.64020.999
+objectIdentifier freeiamExampleOCs freeiamExamples:2
+
+objectclass ( freeiamExampleOCs:1
+    NAME 'freeiamExampleEmployeeRole'
+    DESC 'EXAMPLE: Grants basic employee self-service access'
+    SUP top
+    AUXILIARY )
+
+objectclass ( freeiamExampleOCs:2
+    NAME 'freeiamExampleManagerRole'
+    DESC 'EXAMPLE: Grants permission to manage team members'
+    SUP top
+    AUXILIARY )
+
+objectclass ( freeiamExampleOCs:3
+    NAME 'freeiamExampleAdminRole'
+    DESC 'EXAMPLE: Grants full administrative privileges'
+    SUP top
+    AUXILIARY )
+
+objectclass ( freeiamExampleOCs:4
+    NAME 'freeiamExampleSuspendedAccount'
+    DESC 'EXAMPLE: Marks an account as suspended and restricts access'
+    SUP top
+    AUXILIARY )

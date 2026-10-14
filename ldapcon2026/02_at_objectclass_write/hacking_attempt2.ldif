@@ -1,0 +1,4 @@
+dn: uid=john,ou=people,dc=freeiam,dc=org
+changetype: modify
+delete: objectClass
+objectClass: freeiamExampleSuspendedAccount

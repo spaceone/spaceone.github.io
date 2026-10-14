@@ -1,0 +1,4 @@
+dn: uid=alice,ou=people,dc=freeiam,dc=org
+changetype: modify
+add: objectClass
+objectClass: freeiamExampleAdminRole

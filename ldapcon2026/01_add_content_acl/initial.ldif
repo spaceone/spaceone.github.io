@@ -21,3 +21,28 @@ dn: ou=managed,dc=freeiam,dc=org
 objectClass: top
 objectClass: organizationalUnit
 ou: managed
+
+dn: ou=people,dc=freeiam,dc=org
+objectClass: top
+objectClass: organizationalUnit
+ou: people
+
+dn: uid=alice,ou=people,dc=freeiam,dc=org
+objectClass: top
+objectClass: person
+objectClass: organizationalPerson
+objectClass: inetOrgPerson
+userPassword: i-am-just-alice
+uid: alice
+cn: Alice
+sn: Smith
+
+dn: uid=john,ou=people,dc=freeiam,dc=org
+objectClass: top
+objectClass: person
+objectClass: organizationalPerson
+objectClass: inetOrgPerson
+userPassword: i-am-just-john
+uid: john
+cn: John
+sn: Doe
