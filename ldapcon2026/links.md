@@ -56,19 +56,25 @@ A broader overview of our LDAP ACL performance benchmarks and comparisons is sti
 
 It is not available yet, but I plan to add it here in the weeks following LDAPCon 2026.
 
-### 🔐 OpenLDAP Add Content ACLs & DIT Content Rules
+### 🔐 OpenLDAP ACL Security & DIT Content Rules
 
-References for the LDAP ACL quiz and the somewhat surprising behavior of Add operations.
+References for the LDAP ACL quiz and two surprising behaviors with potentially serious security implications.
 
-By default, OpenLDAP does not perform attribute-level ACL checks when adding entries. This can lead to serious security issues if administrators assume that their ACLs also restrict the content of newly created entries.
-
-I've submitted an OpenLDAP ITS proposing to enable `add_content_acl` by default in a future release, and published a reproducible proof of concept demonstrating the security implications.
+**Add Content ACLs:** By default, OpenLDAP does not perform attribute-level ACL checks when adding entries. Administrators may unknowingly allow the creation of entries containing otherwise restricted attributes.
 
 - [`slapd.conf(5)` - `add_content_acl`](https://man7.org/linux/man-pages/man5/slapd.conf.5.html)
 - [`slapd.access(5)` - ACL requirements for Add operations](https://man7.org/linux/man-pages/man5/slapd.access.5.html)
+- [OpenLDAP ITS#10623 - Enable `add_content_acl` by default](https://bugs.openldap.org/show_bug.cgi?id=10623)
+- [Security PoC - Add Content ACL bypass](https://github.com/spaceone/spaceone.github.io/tree/main/ldapcon2026/01_add_content_acl)
+
+**Object Class ACLs:** The `@objectClass` ACL shortcut unexpectedly grants write access to arbitrary `objectClass` values, potentially allowing users to assign themselves privileged roles or remove security-relevant classifications.
+
+- [OpenLDAP ITS#10638 - Restrict `@objectClass` ACL permissions](https://bugs.openldap.org/show_bug.cgi?id=10638)
+- [Security PoC - Object class privilege escalation](https://github.com/spaceone/spaceone.github.io/tree/main/ldapcon2026/02_at_objectclass_write/)
+
+**DIT Content Rules:** Additional schema constraints can restrict which auxiliary object classes are allowed, but cannot enforce mutual exclusion between them.
+
 - [OpenLDAP FAQ: DIT Content Rules](https://www.openldap.org/faq/data/cache/1473.html)
-- [OpenLDAP ITS#10623 - Proposal to enable `add_content_acl` by default](https://bugs.openldap.org/show_bug.cgi?id=10623)
-- [Security PoC - Reproducing the `add_content_acl` issue](https://github.com/spaceone/spaceone.github.io/tree/main/ldapcon2026/01_add_content_acl)
 
 ### 🐛 Misc linked issues
 
